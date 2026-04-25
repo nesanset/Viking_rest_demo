@@ -1,6 +1,9 @@
 package ru.mephi.vikingdemo.service;
 
 import org.springframework.stereotype.Service;
+import ru.mephi.vikingdemo.model.BeardStyle;
+import ru.mephi.vikingdemo.model.EquipmentItem;
+import ru.mephi.vikingdemo.model.HairColor;
 import ru.mephi.vikingdemo.model.Viking;
 
 import java.util.List;
@@ -22,11 +25,31 @@ public class VikingService {
     }
 
     public Viking createRandomViking() {
-        
-
         Viking viking = vikingFactory.createRandomViking();
 
         vikings.add(viking);
+        return viking;
+    }
+
+    public Viking createViking(String name, int age, int heightCm, HairColor hairColor, BeardStyle beardStyle, List<EquipmentItem> equipment) {
+        Viking viking = new Viking(name, age, heightCm, hairColor, beardStyle, equipment);
+        vikings.add(viking);
+        return viking;
+    }
+
+    public int removeViking(int index) throws IndexOutOfBoundsException {
+        if (index < 0 || index >= vikings.size()) {
+            throw new IndexOutOfBoundsException("Такого викинга нет!");
+        }
+        vikings.remove(index);
+        return index;
+    }
+
+    public Viking updateViking(int index, Viking viking) throws IndexOutOfBoundsException {
+        if (index < 0 || index >= vikings.size()) {
+            throw new IndexOutOfBoundsException("Такого викинга нет!");
+        }
+        vikings.set(index, viking);
         return viking;
     }
 }

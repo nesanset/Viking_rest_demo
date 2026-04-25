@@ -4,14 +4,11 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.mephi.vikingdemo.model.Viking;
 import ru.mephi.vikingdemo.service.VikingService;
 
 import java.util.List;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @RestController
 @RequestMapping("/api/vikings")
@@ -48,8 +45,23 @@ public class VikingController {
         return List.of("Ragnar", "Bjorn");
     }
     
-    @PostMapping("/post")
+    @PostMapping("/add")
     public void addViking(){
         vikingListener.testAdd();
+    }
+
+    @PostMapping
+    public void addViking(@RequestBody Viking viking) {
+        vikingListener.add(viking.name(), viking.age(), viking.heightCm(), viking.hairColor(),viking.beardStyle(), viking.equipment());
+    }
+
+    @DeleteMapping("/delete")
+    public void deleteViking(@RequestParam int index) {
+        vikingListener.delete(index);
+    }
+
+    @PutMapping("/update")
+    public void updateViking(@RequestParam int index, @RequestBody Viking viking) {
+        vikingListener.update(index, viking);
     }
 }
