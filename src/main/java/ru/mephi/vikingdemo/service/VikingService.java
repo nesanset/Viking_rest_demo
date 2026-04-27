@@ -39,7 +39,7 @@ public class VikingService {
 
     public int removeViking(int index) throws IndexOutOfBoundsException {
         if (index < 0 || index >= vikings.size()) {
-            throw new IndexOutOfBoundsException("Такого викинга нет!");
+            throw new IndexOutOfBoundsException("Такого викинга не существует");
         }
         vikings.remove(index);
         return index;
@@ -47,7 +47,7 @@ public class VikingService {
 
     public Viking updateViking(int index, Viking viking) throws IndexOutOfBoundsException {
         if (index < 0 || index >= vikings.size()) {
-            throw new IndexOutOfBoundsException("Такого викинга нет!");
+            throw new IndexOutOfBoundsException("Такого викинга не существует");
         }
         vikings.set(index, viking);
         return viking;

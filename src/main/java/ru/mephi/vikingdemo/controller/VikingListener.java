@@ -44,16 +44,16 @@ public class VikingListener {
     void delete(int index) {
         try {
             gui.removeOldViking(service.removeViking(index));
-        } catch (IndexOutOfBoundsException exception) {
-            System.out.println(exception.getMessage());
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println(e.getMessage());
         }
     }
 
     void update(int index, Viking viking) {
         try {
             gui.updateOldViking(index, service.updateViking(index, viking));
-        } catch (IndexOutOfBoundsException exception) {
-            System.out.println(exception.getMessage());
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println(e.getMessage());
         }
     }
 }
