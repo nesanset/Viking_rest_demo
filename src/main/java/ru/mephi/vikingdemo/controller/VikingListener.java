@@ -40,12 +40,6 @@ public class VikingListener {
     void add(Viking viking) {
         gui.addNewViking(service.createViking(viking));
     }
-    /*
-    void add(String name, int age, int heightCm, HairColor hairColor, BeardStyle beardStyle, List<EquipmentItem> equipment) {
-        gui.addNewViking(service.createViking(name, age, heightCm, hairColor, beardStyle, equipment));
-    }
-*/
-
 
     void delete(int index) {
         try {
