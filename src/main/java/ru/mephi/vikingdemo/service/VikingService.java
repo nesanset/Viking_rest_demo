@@ -31,8 +31,7 @@ public class VikingService {
         return viking;
     }
 
-    public Viking createViking(String name, int age, int heightCm, HairColor hairColor, BeardStyle beardStyle, List<EquipmentItem> equipment) {
-        Viking viking = new Viking(name, age, heightCm, hairColor, beardStyle, equipment);
+    public Viking createViking(Viking viking){
         vikings.add(viking);
         return viking;
     }

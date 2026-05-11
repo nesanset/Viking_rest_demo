@@ -52,7 +52,7 @@ public class VikingController {
 
     @PostMapping
     public void addViking(@RequestBody Viking viking) {
-        vikingListener.add(viking.name(), viking.age(), viking.heightCm(), viking.hairColor(),viking.beardStyle(), viking.equipment());
+        vikingListener.add(viking);
     }
 
     @DeleteMapping("/delete")
